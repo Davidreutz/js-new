@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Nava. 29.607.631</title>
+</head>
+<body>
+    <script>
+            // Datos del empleado 
+            // David Nava. 29.607.631 N1113
+
+        var nombre, apellido, cedula, horasDiurnas,  horasVespertinas, horasNocturnas, sueldoBruto, sueldoBruto1, sueldoQuincenal, sueldoQuincenal1;
+        
+        
+        nombre = prompt("Ingrese el nombre ");
+        apellido = prompt("Ingrese el apellido");
+        cedula = prompt("Ingrese la cédula");
+        
+
+        // Horas trabajadas por turno
+        horasDiurnas = parseInt(prompt("Estas son las horas trabajadas Diurnas al dia: "));
+        horasVespertinas = parseInt(prompt("Estas son horas trabajadas Vespertinas al dia: "));
+        horasNocturnas = parseInt(prompt("Estas son horas trabajadas Nocturnas al dia: "));
+
+        document.write('<br>', "Nombre:" + nombre);
+        document.write('<br>', "Apellido:" + apellido);
+        document.write('<br>', "Cedula:" + cedula);
+        document.write('<br>', "Horas trabajadas diurnas: " + horasDiurnas);
+        document.write('<br>', "Horas trabajadas vespertinas: " + horasVespertinas);;
+        document.write('<br>', "Horas trabajadas nocturnas: " + horasNocturnas);
+
+        // Costo de las horas por turno
+        const costoHoraDiurna = 675;
+        const costoHoraVespertina = 700;
+        const costoHoraNocturna = 956.23;
+
+        // Cálculo del sueldo bruto
+        sueldoBruto = (horasDiurnas * costoHoraDiurna + horasVespertinas * costoHoraVespertina + horasNocturnas * costoHoraNocturna) * 30;
+    
+        // Descuentos
+        let ahorroHabitacional = 0;
+        let seguroSocial = 0;
+
+        if (sueldoBruto < 85000) {
+        ahorroHabitacional = sueldoBruto * 0.1;
+        seguroSocial = sueldoBruto * 0.15;
+
+        } else if (sueldoBruto >= 85000 && sueldoBruto <= 150000) {
+        ahorroHabitacional = sueldoBruto * 0.15;
+        seguroSocial = sueldoBruto * 0.20;
+
+        } else {
+        ahorroHabitacional = sueldoBruto * 0.30;
+        seguroSocial = sueldoBruto * 0.25;
+        }
+
+        // Cálculo del sueldo quincenal
+        sueldoQuincenal1 = sueldoBruto - ahorroHabitacional - seguroSocial;
+        sueldoQuincenal = sueldoQuincenal1/2;
+
+        sueldoBruto1 = sueldoBruto/2;
+
+        // Resultado
+        document.write('<br>',"Sueldo Quincenal con deducciones: " + sueldoQuincenal.toFixed(2) + "bs");
+        document.write('<br>', "Sueldo Quincenal sin deducciones: " + sueldoBruto1 + "bs");
+        
+        
+
+    </script>
+    
+</body>
+</html>
